@@ -5,7 +5,7 @@ from flask_wtf.file import FileField, FileAllowed
 from wtforms.widgets import NumberInput
 
 
-class WarehouseJournalReturn(FlaskForm):
+# class TemplateForm(FlaskForm):
     # element_id = HiddenField()
     # string_field = StringField(render_kw={'disabled': True})
     # text_area_field = TextAreaField(validators=[DataRequired()])
@@ -15,4 +15,15 @@ class WarehouseJournalReturn(FlaskForm):
     #     default    = 0,
 	# 	render_kw  = {'readonly': True}
     # )
-	pass
+
+
+class LoginForm(FlaskForm):
+    email    = StringField(validators=[Email(), DataRequired()])
+    password = PasswordField(validators=[DataRequired()])
+
+
+
+
+class LoginForm(FlaskForm):
+    email    = StringField(validators=[Email(), DataRequired()])
+    password = PasswordField(validators=[DataRequired()])

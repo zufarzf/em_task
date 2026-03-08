@@ -1,0 +1,315 @@
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	box-sizing: border-box;
+	font-family: 'Times New roman';
+	/* color: #fff; */
+	color: #222222;
+	font-size: 20px;
+}
+
+li {
+ 	margin-left: 2em;           /* Красная строка (отступ в начале абзаца) */
+}
+.menu li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ------------------------- */
+
+/* Fixed-Footer======================= */
+html,
+body {
+    height: 100%;
+	background-color: #f7f6f6;
+}
+
+.body-wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+	position: relative;
+}
+
+
+main {
+    flex: 1 1 0;
+}
+
+
+header {
+	position: relative;
+}
+header * {
+	color: #fff;
+	font-size: 1.2rem;
+	z-index: 5;
+}
+
+
+
+.max-width-1920 {
+	max-width: 1920px;
+	width: 100%;
+}
+
+.max-width-1440 {
+	max-width: 1440px;
+	width: 100%;
+}
+
+.width-100p {
+	width: 100%;
+}
+
+.width-50p {
+	width: 50%;
+}
+
+
+
+
+.p10 {
+	padding: 10px;
+}
+.p20 {
+	padding: 20px;
+}
+
+.p30 {
+	padding: 30px;
+}
+
+
+.mb10 {
+	margin-bottom: 10px;
+}
+
+.mb20 {
+	margin-bottom: 20px;
+}
+
+.mb30 {
+	margin-bottom: 30px;
+}
+
+.mb60 {
+	margin-bottom: 60px;
+}
+
+
+
+
+.df { display: flex; }
+.flex-direction-col { flex-direction: column; }
+.flex-gap { gap: 30px; }
+
+.jcc { justify-content: center; }
+.jc-start { justify-content: start; }
+.jc-end { justify-content: end; }
+
+.aic { align-items: center; }
+.aie { align-items: end; }
+
+.left {
+	align-self: flex-start;
+}
+.right {
+	align-self: flex-end;
+}
+.center {
+	align-self: center;
+}
+
+
+.fullscreen {
+    height: 100vh;
+}
+
+
+.background-0 {
+	background-color: #f8f7f5;
+}
+.background-1 {
+	background-color: #d6d6d69f;
+}
+.background-2 {
+	background-color: #202020a6;
+	box-shadow: 1px 2px 4px #0000008c;
+}
+.background-3 {
+	background-color: #303030e8;
+}
+.background-3 * {
+	color: #fff;
+}
+
+
+h1.start {
+	text-align: start;
+}
+h1.end {
+	text-align: end;
+}
+p {
+  text-align: justify;        /* Выравнивание текста по ширине */
+  line-height: 1.6;           /* Межстрочный интервал для удобного чтения */
+  letter-spacing: 0.5px;      /* Расстояние между буквами */
+  word-spacing: 2px;          /* Расстояние между словами */
+  text-indent: 2em;           /* Красная строка (отступ в начале абзаца) */
+}
+
+
+.no-break {
+	white-space: nowrap;
+}
+
+
+.font-size-5rem {
+	font-size: 80px;
+}
+
+.fs-1_6rem { font-size: 1.6rem; }
+
+
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.position-bottom { bottom: 30px; }
+.position-right { right: 30px; }
+
+
+
+
+
+
+/* MENU */
+
+
+.menu {
+	display: flex;
+	justify-content: end;
+	
+	position: fixed;
+	top: calc(-100% + 52px);
+
+	width: 100%;
+	height: 100vh;
+	transition: 0.2s;
+	
+	background-color: #1b1b1bef;
+}
+
+.menu.active {
+	top: 0%;
+}
+
+.burger-svg[data-active="false"],
+.x-svg[data-active="false"] {
+	display: none;
+}
+
+
+.wrapper-menu-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	/* background-color: #1b1b1bef; */
+}
+
+a.menu-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	/* background-color: #1b1b1bef; */
+}
+
+
+ul.menu-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: end;
+	gap: 20px;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+}
+
+
+/* ul.menu-body {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	gap: 20px;
+} */
+li.menu-item {
+	min-width: 200px;
+	text-align: right;
+	margin-bottom: 40px;
+}
+li.menu-item a {
+	width: 100%;
+	font-size: 26px;
+	text-align: center;
+	
+	position: relative;
+	transition: 0.18s;
+}
+li.menu-item a:hover {
+	color: #ffc918;
+}
+li.menu-item a::after {
+	content: '';
+	display: flex;
+	position: absolute;
+	/* left: 0; */
+	right: 0;
+	width: 0%;
+	height: 2px;
+	background-color: #ffc918;
+	transition: 0.18s;
+}
+li.menu-item a:hover:after {
+	width: 100%;
+	left: 0;
+}
+
+
+
+li.menu-item ul {
+	margin-top: 20px;
+	width: auto;
+}
+li.menu-item li {
+	width: auto;
+	list-style: circle;
+}
+li.menu-item li > a {
+	font-style: italic;
+	font-size: 20px;
+	text-align: left;
+	width: 100%;
+}
+/* MENU */
+
+
+
+.font-style-italic {
+	font-style: italic;
+	font-weight: 600;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}

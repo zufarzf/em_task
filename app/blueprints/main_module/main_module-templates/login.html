@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='addl_stile.css') }}">
+	<title>Document</title>
+</head>
+<body>
+	
+	<div class="body-wrapper">
+		<header></header>
+		<main>
+			<div class="fullscreen df jcc aiс p30">
+
+				<form
+					action="{{ url_for('main_module.login') }}"
+					class="max-width-1920 df flex-direction-col jcc flex-gap-20px"
+				>
+					<h3>login</h3>
+
+					<label for="email">Email</label>
+					<input type="email" name="email" id="email" placeholder="Email">
+
+					<label for="password">Пароль</label>
+					<input type="password" name="password" id="password" placeholder="Пароль">
+					
+					<button type="submit">Войти</button>
+				</form>
+
+			</div>
+		</main>
+	</div>
+
+</body>
+</html>

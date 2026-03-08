@@ -1,30 +1,58 @@
 from .. import db
-# from datetime import datetime, timezone
+from datetime import datetime, timezone
 
 
 
 
-class ModelName(db.Model):
-	__tablename__ = 'table_name'
+class Users(db.Model):
+	__tablename__ = 'users'
     
 	id = db.Column(db.Integer, primary_key=True)
-	string_field = db.Column(db.String(250), nullable=False)
+	firstname = db.Column(db.String(250), nullable=False)
+	name = db.Column(db.String(250), nullable=False)
+	fullname = db.Column(db.String(250), nullable=False)
+	email = db.Column(db.String(250), nullable=False)
+	password = db.Column(db.Text, nullable=False)
+	is_active = db.Column(db.Boolean, default=True)
+
+	create_datetime = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+	edit_datetime = db.Column(db.DateTime)
+	remove_datetime = db.Column(db.DateTime)
     
-	rel_ship = db.relationship('ModelName2', backref='table_name', lazy='dynamic')
+	users_roles = db.relationship('UsersRoles', backref='user', lazy='dynamic')
 
 
 	def __repr__(self):
-		return f'<ModelName -> id: {self.id}>'
+		return f'<User -> id: {self.id}>'
 
 
-class ModelName2(db.Model):
-	__tablename__ = 'table_name_2'
 
+
+class Roles(db.Model):
+	__tablename__ = 'roles'
+    
 	id = db.Column(db.Integer, primary_key=True)
-	table_name_id = db.Column(db.Integer, db.ForeignKey('table_name.id'))
-
-	string_field = db.Column(db.String(250), nullable=False)
+	name = db.Column(db.String(250), nullable=False)
+	create_datetime = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+	edit_datetime = db.Column(db.DateTime)
+	remove_datetime = db.Column(db.DateTime)
+    
+	users_roles = db.relationship('UsersRoles', backref='role', lazy='dynamic')
 
 
 	def __repr__(self):
-		return f'<ModelName2 -> id: {self.id}>'
+		return f'<Role -> id: {self.id}>'
+
+
+
+
+class UsersRoles(db.Model):
+	__tablename__ = 'users_roles'
+
+	id = db.Column(db.Integer, primary_key=True)
+	user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+	role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
+
+
+	def __repr__(self):
+		return f'<UserRole -> id: {self.id}>'
